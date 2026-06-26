@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TA Manager Dashboard — Case Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a1a;
+    --ink-muted: #5a5a5a;
+    --ink-faint: #a0a0a0;
+    --surface: #ffffff;
+    --surface-soft: #f7f6f2;
+    --accent: #1D9E75;
+    --accent-light: #E1F5EE;
+    --border: rgba(0,0,0,0.08);
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'Inter', sans-serif;
+  }
+  body {
+    font-family: var(--font-body);
+    background: var(--surface);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-back {
+    font-size: 13px; color: var(--ink-muted);
+    display: flex; align-items: center; gap: 6px;
+    transition: color 0.15s;
+  }
+  .nav-back:hover { color: var(--ink); }
+  .nav-badge {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+    background: var(--accent-light); color: var(--accent);
+    border-radius: 20px; padding: 3px 10px;
+  }
+
+  .hero {
+    max-width: 760px; margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+  }
+  .tags-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .pill {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    border-radius: 20px; padding: 3px 12px;
+    color: var(--ink-muted);
+  }
+  .pill-live {
+    background: var(--accent); color: #fff; border-color: var(--accent);
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15; color: var(--ink); margin-bottom: 1rem;
+  }
+  .hero-sub {
+    font-size: 1rem; color: var(--ink-muted);
+    max-width: 600px; line-height: 1.75;
+  }
+
+  .stats-band {
+    background: var(--surface-soft);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    padding: 2rem;
+  }
+  .stats-inner {
+    max-width: 760px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.5rem;
+  }
+  .stat-num {
+    font-family: var(--font-display); font-size: 2rem;
+    color: var(--ink); line-height: 1; margin-bottom: 4px;
+  }
+  .stat-num.accent { color: var(--accent); }
+  .stat-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+
+  .content { max-width: 760px; margin: 0 auto; padding: 4rem 2rem; }
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+
+  .section-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+
+  .content-heading {
+    font-family: var(--font-display); font-size: 1.6rem;
+    color: var(--ink); margin-bottom: 1rem; line-height: 1.2;
+  }
+  .content p {
+    font-size: 15px; color: var(--ink-muted); line-height: 1.8; margin-bottom: 1rem;
+  }
+
+  /* Architecture pipeline */
+  .pipeline {
+    background: var(--surface-soft); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem;
+    display: flex; align-items: center; gap: 0; flex-wrap: wrap;
+    margin: 1.5rem 0;
+  }
+  .pipeline-step {
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; flex: 1; min-width: 80px;
+  }
+  .pipeline-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--accent-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 8px;
+  }
+  .pipeline-label { font-size: 12px; font-weight: 600; color: var(--ink); }
+  .pipeline-sub { font-size: 11px; color: var(--ink-faint); margin-top: 2px; }
+  .pipeline-arrow {
+    font-size: 18px; color: var(--ink-faint); padding: 0 4px; margin-bottom: 20px;
+  }
+
+  /* Engineering findings */
+  .finding {
+    border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.25rem; margin-bottom: 1rem;
+  }
+  .finding-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+  }
+  .finding-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+  .finding p { font-size: 14px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 8px; }
+  .code-block {
+    background: #f0f0ec; border-radius: 6px;
+    padding: 10px 14px; font-size: 12px; font-family: monospace;
+    color: var(--ink-muted); line-height: 1.6; margin: 8px 0;
+    overflow-x: auto;
+  }
+  .code-block .comment { color: var(--ink-faint); }
+  .code-block .result { color: var(--accent); font-weight: 600; }
+
+  /* Delivery grid */
+  .delivery-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem; margin-top: 1rem;
+  }
+  .delivery-card {
+    background: var(--surface-soft); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem;
+  }
+  .delivery-icon { font-size: 22px; margin-bottom: 10px; }
+  .delivery-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .delivery-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+
+  /* Outcome callout */
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-light);
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .callout p { font-size: 15px; color: var(--ink); line-height: 1.75; margin: 0; }
+
+  /* Stack */
+  .stack-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
+  .stack-tag {
+    font-size: 12px; font-weight: 500;
+    background: var(--surface-soft); border: 1px solid var(--border);
+    border-radius: 20px; padding: 4px 14px; color: var(--ink-muted);
+  }
+
+  footer {
+    text-align: center; padding: 2rem;
+    font-size: 12px; color: var(--ink-faint);
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-back">&#8592; Back to portfolio</a>
+  <span class="nav-badge">&#9679; Live Project</span>
+</nav>
+
+<div class="hero">
+  <div class="tags-row">
+    <span class="pill">Solo Project</span>
+    <span class="pill">Growisto</span>
+    <span class="pill">2025</span>
+    <span class="pill pill-live">&#9679; Live</span>
+  </div>
+  <h1>TA Manager Dashboard</h1>
+  <p class="hero-sub">A zero-backend sales intelligence tool consolidating 847 target accounts and 6,294 leads across four account managers &mdash; built, deployed, and automated end-to-end.</p>
+</div>
+
+<div class="stats-band">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num">4</div>
+      <div class="stat-label">Account Managers</div>
+    </div>
+    <div>
+      <div class="stat-num">847</div>
+      <div class="stat-label">Target Accounts</div>
+    </div>
+    <div>
+      <div class="stat-num">6,294</div>
+      <div class="stat-label">Leads Indexed</div>
+    </div>
+    <div>
+      <div class="stat-num accent">0</div>
+      <div class="stat-label">Backend Servers</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- CONTEXT -->
+  <div class="section-eyebrow">Context</div>
+  <div class="content-heading">Four managers. No unified view.</div>
+  <p>Growisto's Target Account team each maintained separate prospecting workflows inside Zoho CRM &mdash; switching modules, filtering by owner, manually cross-referencing accounts to leads. There was no visibility into which accounts were warm, which had contacts attached, or whose follow-up was already overdue.</p>
+  <p>The requirement was a single-page dashboard showing each manager's full portfolio with filtering, priority ranking, and contact coverage &mdash; shareable as a URL, no login required.</p>
+
+  <hr class="section-divider"/>
+
+  <!-- ARCHITECTURE -->
+  <div class="section-eyebrow">Architecture</div>
+  <div class="content-heading">Static HTML as the entire deployment target.</div>
+  <p>The core decision: embed all CRM data as a JSON literal inside the HTML at build time. No backend, no auth middleware, no API gateway. The dashboard loads in one request and works offline once cached.</p>
+
+  <div class="pipeline">
+    <div class="pipeline-step">
+      <div class="pipeline-icon">&#128451;</div>
+      <div class="pipeline-label">Zoho CRM</div>
+      <div class="pipeline-sub">COQL API</div>
+    </div>
+    <div class="pipeline-arrow">&#8594;</div>
+    <div class="pipeline-step">
+      <div class="pipeline-icon">&#9881;</div>
+      <div class="pipeline-label">PowerShell ETL</div>
+      <div class="pipeline-sub">paginate &middot; dedup</div>
+    </div>
+    <div class="pipeline-arrow">&#8594;</div>
+    <div class="pipeline-step">
+      <div class="pipeline-icon">&#128193;</div>
+      <div class="pipeline-label">JSON Files</div>
+      <div class="pipeline-sub">8 files &middot; ~15 MB</div>
+    </div>
+    <div class="pipeline-arrow">&#8594;</div>
+    <div class="pipeline-step">
+      <div class="pipeline-icon">&#128296;</div>
+      <div class="pipeline-label">HTML Build</div>
+      <div class="pipeline-sub">data embedded</div>
+    </div>
+    <div class="pipeline-arrow">&#8594;</div>
+    <div class="pipeline-step">
+      <div class="pipeline-icon">&#128640;</div>
+      <div class="pipeline-label">Netlify</div>
+      <div class="pipeline-sub">Files API deploy</div>
+    </div>
+  </div>
+
+  <p>A Windows Task Scheduler job runs the full pipeline daily at 8:30 AM &mdash; fetch all CRM data, rebuild the HTML, deploy to Netlify &mdash; keeping the dashboard current without manual steps.</p>
+
+  <hr class="section-divider"/>
+
+  <!-- ENGINEERING -->
+  <div class="section-eyebrow">Engineering</div>
+  <div class="content-heading">Four problems worth documenting.</div>
+
+  <div class="finding">
+    <div class="finding-label">Finding 01</div>
+    <div class="finding-title">The lead filter was wrong for two of four managers</div>
+    <p>Initial COQL queries filtered by <code>Lead.Owner.id</code> &mdash; the user who entered the record. For two managers, this returned zero leads because another team member had created those records.</p>
+    <div class="code-block">
+      <span class="comment">Before: filters by who created the lead record</span><br>
+      SELECT * FROM Leads WHERE Owner.id = '319412...'<br>
+      <span class="result">&#8594; returned 0 leads for 2 of 4 managers</span>
+    </div>
+    <div class="code-block">
+      <span class="comment">After: filters by who owns the linked Target Account</span><br>
+      SELECT * FROM Leads WHERE Target_Account_Name.Owner.id = '319412...'<br>
+      <span class="result">&#8594; returns the correct full portfolio</span>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-label">Finding 02</div>
+    <div class="finding-title">Maira's dataset required 15 sequential paginated fetches</div>
+    <p>Zoho's COQL API caps results at 200 records per call. Maira's portfolio alone spanned 2,958 leads across 15 requests, each checking <code>more_records</code> before advancing the offset. Total: 8 pages for Siddharth (1,465 leads), 7 for Himanshi (1,239), 4 for Chitrakshi (632).</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-label">Finding 03</div>
+    <div class="finding-title">API responses above ~60 KB were silently truncated on disk</div>
+    <p>Large responses got cut mid-record when persisted to disk. A recovery script scanned each file backwards for the last valid <code>},{</code> JSON record boundary, closed the array there, and re-parsed &mdash; recovering 189 of 200 records from one truncated 63 KB payload.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-label">Finding 04</div>
+    <div class="finding-title">22 accounts existed in leads but not in the account query</div>
+    <p>Chitrakshi's account query returned 333 records; her leads referenced 22 additional account IDs absent from that set &mdash; likely CRM ownership gaps. The build script derives those accounts from lead data and marks them <code>_derived: true</code>, making the discrepancy visible rather than silently hiding it.</p>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- DELIVERY -->
+  <div class="section-eyebrow">Delivery</div>
+  <div class="content-heading">What shipped.</div>
+
+  <div class="delivery-grid">
+    <div class="delivery-card">
+      <div class="delivery-icon">&#128202;</div>
+      <div class="delivery-title">Vertical-split overview</div>
+      <div class="delivery-desc">Status breakdown divided by vertical (Amazon/D2C vs B2B/SaaS) per manager &mdash; a view that had no equivalent anywhere in the CRM.</div>
+    </div>
+    <div class="delivery-card">
+      <div class="delivery-icon">&#128222;</div>
+      <div class="delivery-title">Priority calling list</div>
+      <div class="delivery-desc">Accounts ranked: overdue NSD &#8594; due today &#8594; warm &#8594; cold. Top contact pre-loaded per row with one-click WhatsApp and LinkedIn.</div>
+    </div>
+    <div class="delivery-card">
+      <div class="delivery-icon">&#128276;</div>
+      <div class="delivery-title">Nurture reminders</div>
+      <div class="delivery-desc">Next Step Dates from CRM surface as overdue, due today, or upcoming &mdash; grouped and sorted automatically on each load.</div>
+    </div>
+    <div class="delivery-card">
+      <div class="delivery-icon">&#128203;</div>
+      <div class="delivery-title">Full account table</div>
+      <div class="delivery-desc">Sortable, searchable, filterable table across all accounts. Expandable lead drawer per row shows all indexed contacts.</div>
+    </div>
+    <div class="delivery-card">
+      <div class="delivery-icon">&#127919;</div>
+      <div class="delivery-title">POC coverage bar</div>
+      <div class="delivery-desc">Percentage of working accounts with at least one contact in the leads database. Surfaces gaps at a glance without a separate report.</div>
+    </div>
+    <div class="delivery-card">
+      <div class="delivery-icon">&#128260;</div>
+      <div class="delivery-title">Auto-refresh pipeline</div>
+      <div class="delivery-desc">PowerShell + Windows Task Scheduler. Full fetch &#8594; build &#8594; deploy cycle runs daily at 8:30 AM without manual steps.</div>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- OUTCOME -->
+  <div class="section-eyebrow">Outcome</div>
+  <div class="content-heading">Deployed and in daily use.</div>
+  <p>The dashboard replaced an estimated 15&ndash;20 minutes of daily CRM navigation per manager. The vertical-split overview and priority calling list are both views that previously didn't exist in any form &mdash; not in Zoho, not in spreadsheets.</p>
+
+  <div class="callout">
+    <p>The most consequential finding wasn't a UI bug &mdash; it was discovering that Zoho's lead ownership model doesn't match how the team thinks about ownership. That single COQL fix unlocked the correct dataset for two of four managers and validated why a purpose-built tool is worth more than raw CRM access.</p>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- STACK -->
+  <div class="section-eyebrow">Stack</div>
+  <div class="content-heading">Technologies used.</div>
+  <div class="stack-tags">
+    <span class="stack-tag">Zoho CRM COQL API</span>
+    <span class="stack-tag">PowerShell 5.1</span>
+    <span class="stack-tag">Vanilla JavaScript</span>
+    <span class="stack-tag">HTML / CSS</span>
+    <span class="stack-tag">JSON</span>
+    <span class="stack-tag">Netlify Files API</span>
+    <span class="stack-tag">Windows Task Scheduler</span>
+  </div>
+
+</div>
+
+<footer>Siddharth Tiwari &middot; Growisto &middot; 2025</footer>
+
+</body>
+</html>
