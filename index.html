@@ -1,357 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Siddharth Tiwari — Marketing & Growth</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siddharth Tiwari — Growth, Operations & Automation</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --ink: #1a1a1a;
-    --ink-muted: #5a5a5a;
-    --ink-faint: #a0a0a0;
-    --surface: #ffffff;
-    --surface-soft: #f7f6f2;
-    --accent: #1D9E75;
-    --accent-light: #E1F5EE;
-    --border: rgba(0,0,0,0.08);
-    --font-display: 'DM Serif Display', serif;
-    --font-body: 'Inter', sans-serif;
-  }
-  body {
-    font-family: var(--font-body);
-    background: var(--surface);
-    color: var(--ink);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: inherit; text-decoration: none; }
-
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 56px;
-  }
-  .nav-name { font-size: 14px; font-weight: 600; letter-spacing: 0.01em; color: var(--ink); }
-  .nav-links { display: flex; gap: 1.5rem; }
-  .nav-links a { font-size: 13px; color: var(--ink-muted); transition: color 0.15s; }
-  .nav-links a:hover { color: var(--ink); }
-
-  .hero { max-width: 760px; margin: 0 auto; padding: 6rem 2rem 4rem; }
-  .hero-eyebrow {
-    font-size: 13px; font-weight: 500; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem;
-  }
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2.4rem, 5vw, 3.4rem);
-    line-height: 1.15; color: var(--ink); margin-bottom: 1.25rem;
-  }
-  .hero-sub {
-    font-size: 1.05rem; color: var(--ink-muted);
-    max-width: 560px; line-height: 1.75; margin-bottom: 2rem;
-  }
-  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: var(--ink); color: #fff;
-    font-family: var(--font-body); font-size: 13px; font-weight: 500;
-    padding: 10px 20px; border-radius: 6px; border: none; cursor: pointer; transition: opacity 0.15s;
-  }
-  .btn-primary:hover { opacity: 0.82; }
-  .btn-outline {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: transparent; color: var(--ink);
-    font-family: var(--font-body); font-size: 13px; font-weight: 500;
-    padding: 10px 20px; border-radius: 6px;
-    border: 1px solid var(--border); cursor: pointer; transition: background 0.15s;
-  }
-  .btn-outline:hover { background: var(--surface-soft); }
-
-  .numbers-band {
-    background: var(--surface-soft);
-    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    padding: 2.5rem 2rem;
-  }
-  .numbers-inner {
-    max-width: 760px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2rem;
-  }
-  .stat-num {
-    font-family: var(--font-display); font-size: 2rem;
-    color: var(--ink); line-height: 1; margin-bottom: 4px;
-  }
-  .stat-label {
-    font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
-    text-transform: uppercase; color: var(--ink-faint);
-  }
-
-  section { max-width: 760px; margin: 0 auto; padding: 4rem 2rem; }
-  .section-label {
-    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem;
-  }
-  .section-heading {
-    display: block;
-    font-family: var(--font-display); font-size: 1.8rem;
-    line-height: 1.2; color: var(--ink); margin-bottom: 1rem;
-  }
-  .section-divider { border: none; border-top: 1px solid var(--border); max-width: 760px; margin: 0 auto; }
-
-  .exp-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
-  .exp-item:last-child { border-bottom: none; }
-  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
-  .exp-role { font-size: 15px; font-weight: 600; color: var(--ink); }
-  .exp-company { font-size: 14px; color: var(--ink-muted); margin-bottom: 2px; }
-  .exp-date { font-size: 12px; color: var(--ink-faint); white-space: nowrap; padding-top: 2px; }
-  .exp-bullets { list-style: none; padding: 0; margin-top: 0.75rem; }
-  .exp-bullets li {
-    font-size: 14px; color: var(--ink-muted); line-height: 1.65;
-    padding-left: 16px; position: relative; margin-bottom: 4px;
-  }
-  .exp-bullets li::before { content: '-'; position: absolute; left: 0; color: var(--accent); }
-
-  .projects-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem; margin-top: 1rem;
-  }
-  .project-card {
-    background: var(--surface-soft); border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.25rem;
-  }
-  .project-icon {
-    width: 36px; height: 36px; border-radius: 8px; background: var(--accent-light);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 0.75rem; font-size: 16px;
-  }
-  .project-title { font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
-  .project-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
-
-  .skills-group { margin-bottom: 1.5rem; }
-  .skills-group-title {
-    font-size: 12px; font-weight: 600; color: var(--ink-muted);
-    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px;
-  }
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag {
-    font-size: 12px; font-weight: 500;
-    background: var(--surface-soft); border: 1px solid var(--border);
-    border-radius: 20px; padding: 4px 12px; color: var(--ink-muted);
-  }
-
-  .contact-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px; margin-top: 1rem;
-  }
-  .contact-card {
-    background: var(--surface-soft); border: 1px solid var(--border);
-    border-radius: 10px; padding: 1rem 1.25rem;
-    display: flex; align-items: center; gap: 10px;
-    font-size: 13px; font-weight: 500; color: var(--ink); transition: background 0.15s;
-  }
-  .contact-card:hover { background: #eef9f4; border-color: var(--accent); }
-  .contact-icon { font-size: 18px; color: var(--accent); }
-
-  .award-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: #fffbea; border: 1px solid #f0d96a;
-    border-radius: 20px; padding: 5px 14px;
-    font-size: 12px; font-weight: 500; color: #7a5f00; margin-top: 1.5rem;
-  }
-
-  footer {
-    text-align: center; padding: 2rem;
-    font-size: 12px; color: var(--ink-faint);
-    border-top: 1px solid var(--border);
-  }
+:root{
+  --cream:#F4EBDD; --cream2:#E9DDCA; --orange:#D95F20; --orange2:#A94316;
+  --black:#151515; --muted:#625D56; --line:#CFC2B0; --white:#FBF8F2;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--black);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:10;background:rgba(244,235,219,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:18px 5vw;display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:800;letter-spacing:.03em}.navlinks{display:flex;gap:25px;font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+.wrap{max-width:1120px;margin:auto;padding:0 5vw}
+.hero{min-height:78vh;display:grid;grid-template-columns:1.3fr .7fr;align-items:end;padding-top:90px;padding-bottom:80px;gap:50px}
+.kicker,.label{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--orange2);font-weight:800}
+h1{font-size:clamp(58px,9vw,126px);line-height:.84;letter-spacing:-.065em;max-width:850px;margin:18px 0 30px}
+.hero p{font-size:20px;max-width:680px;color:var(--muted)}
+.specimen{border:1px solid var(--black);padding:24px;background:var(--orange);min-height:270px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(1.2deg)}
+.specimen strong{font-size:64px;line-height:.85;letter-spacing:-.06em}
+.specimen small{font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+.cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{padding:12px 18px;border:1px solid var(--black);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.btn.dark{background:var(--black);color:var(--cream)} .btn.orange{background:var(--orange)}
+.band{border-top:1px solid var(--black);border-bottom:1px solid var(--black);background:var(--black);color:var(--cream);padding:25px 0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat b{display:block;font-size:42px;letter-spacing:-.04em}.stat span{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#BDB3A6}
+section{padding:100px 0;border-bottom:1px solid var(--line)}
+.sectionhead{display:grid;grid-template-columns:.35fr 1fr;gap:40px;margin-bottom:45px}
+h2{font-size:clamp(38px,5vw,70px);line-height:.95;letter-spacing:-.05em}
+.lead{font-size:22px;color:var(--muted);max-width:800px}
+.workgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{border:1px solid var(--black);background:var(--white);padding:27px;min-height:250px;display:flex;flex-direction:column;justify-content:space-between}
+.card.feature{background:var(--black);color:var(--cream)}
+.card.orange{background:var(--orange)}
+.card h3{font-size:30px;line-height:1;letter-spacing:-.03em;margin:14px 0}
+.card p{color:var(--muted);max-width:600px}.feature p{color:#D5CBBB}.orange p{color:#2B1B14}
+.meta{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.arrow{font-size:22px}
+.timeline{border-left:2px solid var(--black);margin-left:8px}
+.job{padding:0 0 45px 30px;position:relative}.job:before{content:"";position:absolute;left:-7px;top:3px;width:12px;height:12px;background:var(--orange);border:2px solid var(--black)}
+.job h3{font-size:25px}.job .date{font-size:12px;color:var(--orange2);font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:5px 0 12px}
+.job p{color:var(--muted);max-width:760px}
+.capgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--black);border:1px solid var(--black)}
+.cap{background:var(--cream);padding:28px;min-height:180px}.cap h3{font-size:19px;margin-bottom:12px}.cap p{font-size:14px;color:var(--muted)}
+footer{padding:50px 0;font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.sectionhead{grid-template-columns:1fr}.workgrid,.capgrid{grid-template-columns:1fr}.navlinks{display:none}h1{font-size:64px}}
 </style>
 </head>
 <body>
+<nav><div class="brand">SID / 300%</div><div class="navlinks"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#capabilities">Capabilities</a><a href="#contact">Contact</a></div></nav>
 
-<nav>
-  <span class="nav-name">Siddharth Tiwari</span>
-  <div class="nav-links">
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<div class="hero">
-  <p class="hero-eyebrow">Marketing Analyst &middot; Mumbai</p>
-  <h1>I build pipelines,<br>not just campaigns.</h1>
-  <p class="hero-sub">
-    I work at the intersection of ABM, GTM operations, and AI-driven automation &mdash; turning cold lists into warm conversations and spreadsheets into revenue signals. Currently at Growisto, a D2C growth agency working with brands like Unilever, Tata Cliq, and Reebok.
-  </p>
-  <div class="hero-cta">
-    <a href="mailto:tsiddharth1999@gmail.com" class="btn-primary">Get in touch</a>
-    <a href="https://linkedin.com/in/siddharth-tiwari-b19bb0157" target="_blank" class="btn-outline">LinkedIn &#8599;</a>
-  </div>
-  <div class="award-badge">&#10022; Emerging Star Award &mdash; recognized by Growisto's CBO &amp; Co-Founder</div>
+<main class="wrap">
+<section class="hero" style="border:0">
+<div>
+<div class="kicker">Growth · Operations · Automation · Mumbai</div>
+<h1>I build systems that make work move.</h1>
+<p>I'm Siddharth Tiwari. I work across growth, operations, automation and service workflows, turning messy manual processes into clearer systems people can actually use.</p>
+<div class="cta"><a class="btn dark" href="#work">View selected work ↓</a><a class="btn orange" href="mailto:tsiddharth1999@gmail.com">Get in touch</a></div>
 </div>
+<div class="specimen"><small>Operating profile / 01</small><strong>BUILD<br>THE<br>SYSTEM.</strong><small>Marketing → GTM → Ops → Automation</small></div>
+</section>
+</main>
 
-<div class="numbers-band">
-  <div class="numbers-inner">
-    <div>
-      <div class="stat-num">&#8377;5 Cr+</div>
-      <div class="stat-label">Pipeline influenced</div>
-    </div>
-    <div>
-      <div class="stat-num">500+</div>
-      <div class="stat-label">Cold calls weekly</div>
-    </div>
-    <div>
-      <div class="stat-num">10+</div>
-      <div class="stat-label">Leadership events</div>
-    </div>
-    <div>
-      <div class="stat-num">5</div>
-      <div class="stat-label">Webinars executed</div>
-    </div>
-  </div>
+<div class="band"><div class="wrap stats">
+<div class="stat"><b>₹5Cr+</b><span>Pipeline influenced</span></div>
+<div class="stat"><b>500+</b><span>Outbound calls / week</span></div>
+<div class="stat"><b>10+</b><span>Leadership events</span></div>
+<div class="stat"><b>16+</b><span>Service platform screens</span></div>
+</div></div>
+
+<main class="wrap">
+<section id="work">
+<div class="sectionhead"><div class="label">01 / Selected work</div><div><h2>Projects with a job to do.</h2><p class="lead">A mix of growth systems, internal tools and customer-facing operations. The common thread is reducing friction and making information actionable.</p></div></div>
+<div class="workgrid">
+<a class="card feature" href="aeroluft-case-study.html"><div><div class="meta">Nutech / Service Operations · 2025</div><h3>Aeroluft Service Resolution Platform</h3><p>WhatsApp-first service architecture connecting customer diagnosis, remote resolution, technician coordination and an internal service desk.</p></div><div class="arrow">Open case study ↗</div></a>
+<div class="card"><div><div class="meta">Growisto / Sales Operations · 2025</div><h3>TA Manager Dashboard</h3><p>Zero-backend sales intelligence dashboard consolidating target accounts and leads into a daily operating view for account managers.</p></div><div class="arrow">Case study ↗</div></div>
+<div class="card orange"><div><div class="meta">Nutech / Operations Automation · 2025</div><h3>Google + Apps Script Operations Systems</h3><p>Explored and implemented Google ecosystem automation and Apps Script workflows to track team work, project status and operational progress.</p></div><div class="arrow">Systems work</div></div>
+<div class="card"><div><div class="meta">Growisto / GTM · 2025</div><h3>ABM & Outbound Engine</h3><p>ICP research, account list building, CXO outreach, cold calling, partner development and GTM workflows supporting pipeline generation.</p></div><div class="arrow">Growth work</div></div>
+<div class="card"><div><div class="meta">Growisto / Events · 2025</div><h3>Leadership Events & Growth Programs</h3><p>High-touch leadership events, webinars, partner coordination and outreach programs designed to create senior-level conversations.</p></div><div class="arrow">Campaign work</div></div>
+<div class="card"><div><div class="meta">Nutech / Cross-functional</div><h3>After-sales Coordination</h3><p>Worked across manufacturing and service stakeholders to structure complaint handling and move toward a more systematic resolution process.</p></div><div class="arrow">Operations</div></div>
 </div>
+</section>
 
 <section id="experience">
-  <p class="section-label">Where I've worked</p>
-  <span class="section-heading">Experience</span>
-
-  <div class="exp-item">
-    <div class="exp-header">
-      <div>
-        <div class="exp-role">Marketing Analyst</div>
-        <div class="exp-company">Growisto, Mumbai</div>
-      </div>
-      <div class="exp-date">Apr 2025 &ndash; Present</div>
-    </div>
-    <ul class="exp-bullets">
-      <li>Generated and influenced &#8377;5 Cr+ qualified pipeline through ABM campaigns and outbound prospecting.</li>
-      <li>Ran 500+ outbound cold calls weekly to founders, CXOs, and senior decision-makers at D2C brands.</li>
-      <li>Organised 10+ leadership events engaging leaders from Adidas, Puma, Under Armour, GIVA, Snitch, and others.</li>
-      <li>Identified, onboarded, and managed strategic partners including commercial documentation and commission tracking.</li>
-      <li>Built AI-driven GTM workflows using Zoho CRM, Claude Code, Gumloop, and Zapier.</li>
-    </ul>
-  </div>
-
-  <div class="exp-item">
-    <div class="exp-header">
-      <div>
-        <div class="exp-role">Marketing Analyst Intern</div>
-        <div class="exp-company">Growisto, Mumbai</div>
-      </div>
-      <div class="exp-date">Jan 2025 &ndash; Mar 2025</div>
-    </div>
-    <ul class="exp-bullets">
-      <li>ICP research, ABM list building, CRM management, outreach support, and event operations.</li>
-    </ul>
-  </div>
-
-  <div class="exp-item">
-    <div class="exp-header">
-      <div>
-        <div class="exp-role">Growth Catalyst Intern</div>
-        <div class="exp-company">Unravel Minds</div>
-      </div>
-      <div class="exp-date">2024</div>
-    </div>
-    <ul class="exp-bullets">
-      <li>Cold calling, email outreach, demo scheduling, and client follow-ups.</li>
-    </ul>
-  </div>
+<div class="sectionhead"><div class="label">02 / Experience</div><div><h2>Different rooms. Same instinct.</h2><p class="lead">I have worked close to revenue, leadership, manufacturing operations and customer service. That range is now the point.</p></div></div>
+<div class="timeline">
+<div class="job"><h3>Executive Assistant to Director — Nutech Engineering</h3><div class="date">16 Jul 2025 — 25 Aug 2025</div><p>Worked directly with the Director across operations, automation and after-sales coordination. Built/explored Google ecosystem and Apps Script systems for team/project visibility and developed the architecture for the Aeroluft service-resolution platform.</p></div>
+<div class="job"><h3>Marketing Analyst — Growisto</h3><div class="date">Jan 2025 — Jun 2025</div><p>Worked across ABM, outbound prospecting, leadership events, strategic partnerships, CRM and GTM automation. Influenced ₹5Cr+ pipeline and operated high-volume CXO/founder outreach.</p></div>
+<div class="job"><h3>Growth Catalyst Intern — Unravel Minds</h3><div class="date">2024</div><p>Worked on cold calling, email outreach, demo scheduling and client follow-ups.</p></div>
+</div>
 </section>
 
-<hr class="section-divider"/>
-
-<section id="projects">
-  <p class="section-label">Things I've built</p>
-  <span class="section-heading">Projects</span>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-icon">&#9889;</div>
-      <div class="project-title">AI-Powered GTM Dashboard</div>
-      <div class="project-desc">Automated activity tracking, reporting, follow-ups, and performance summaries using Claude Code and Zoho CRM. Built to replace manual weekly reporting.</div>
-      <a href="case-study.html" style="display:inline-flex;align-items:center;gap:5px;margin-top:12px;font-size:12px;font-weight:600;color:var(--accent);letter-spacing:0.02em;">View case study &#8599;</a>
-    </div>
-    <div class="project-card">
-      <div class="project-icon">&#8635;</div>
-      <div class="project-title">Automated ABM Data Pipeline</div>
-      <div class="project-desc">Gumloop workflows to clean, verify, enrich, and prepare target account data for outreach campaigns &mdash; cutting list prep time significantly.</div>
-    </div>
-  </div>
+<section id="capabilities">
+<div class="sectionhead"><div class="label">03 / Capabilities</div><div><h2>Where I am useful.</h2><p class="lead">Not a list of software badges. These are the kinds of problems I like getting my hands dirty with.</p></div></div>
+<div class="capgrid">
+<div class="cap"><h3>Growth & GTM</h3><p>ABM, lead generation, outbound, CXO outreach, partnerships, event-led growth, campaign execution.</p></div>
+<div class="cap"><h3>Operations Systems</h3><p>Workflow mapping, team/project tracking, service coordination, process visibility and operating dashboards.</p></div>
+<div class="cap"><h3>Automation</h3><p>Google Workspace, Apps Script, AI-assisted workflows, CRM systems, data movement and lightweight internal tools.</p></div>
+<div class="cap"><h3>Customer Operations</h3><p>Complaint flows, diagnostic journeys, technician coordination, booking logic and resolution-path design.</p></div>
+<div class="cap"><h3>Events & Partnerships</h3><p>Leadership roundtables, webinars, partner onboarding, commercial coordination and senior stakeholder outreach.</p></div>
+<div class="cap"><h3>Tools</h3><p>Google Sheets, Apps Script, Zoho CRM, Zapier, Claude, Claude Code, Notion, Sales Navigator and related GTM tooling.</p></div>
+</div>
 </section>
-
-<hr class="section-divider"/>
-
-<section id="skills">
-  <p class="section-label">What I work with</p>
-  <span class="section-heading">Skills &amp; Tools</span>
-
-  <div class="skills-group">
-    <div class="skills-group-title">Go-to-Market &amp; Growth</div>
-    <div class="tags">
-      <span class="tag">ABM</span>
-      <span class="tag">GTM Operations</span>
-      <span class="tag">Business Development</span>
-      <span class="tag">Revenue Operations</span>
-      <span class="tag">Strategic Partnerships</span>
-      <span class="tag">CXO Outreach</span>
-      <span class="tag">Cold Calling</span>
-      <span class="tag">Lead Qualification</span>
-    </div>
-  </div>
-
-  <div class="skills-group">
-    <div class="skills-group-title">Events &amp; Campaigns</div>
-    <div class="tags">
-      <span class="tag">Event Management</span>
-      <span class="tag">Webinar Execution</span>
-      <span class="tag">LinkedIn Outreach</span>
-      <span class="tag">Email Campaigns</span>
-    </div>
-  </div>
-
-  <div class="skills-group">
-    <div class="skills-group-title">Tools &amp; Automation</div>
-    <div class="tags">
-      <span class="tag">Zoho CRM</span>
-      <span class="tag">Apollo</span>
-      <span class="tag">LinkedIn Sales Navigator</span>
-      <span class="tag">Lusha</span>
-      <span class="tag">Gumloop</span>
-      <span class="tag">Zapier</span>
-      <span class="tag">Claude Code</span>
-      <span class="tag">Perplexity</span>
-      <span class="tag">Notion</span>
-      <span class="tag">Excel</span>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider"/>
 
 <section id="contact">
-  <p class="section-label">Let's talk</p>
-  <span class="section-heading">Get in touch</span>
-  <p style="font-size:14px; color:var(--ink-muted); margin-bottom:1.5rem;">Open to full-time roles in marketing, demand generation, and growth. Based in Mumbai.</p>
-  <div class="contact-grid">
-    <a href="mailto:tsiddharth1999@gmail.com" class="contact-card">
-      <span class="contact-icon">&#9993;</span> tsiddharth1999@gmail.com
-    </a>
-    <a href="tel:+918007636416" class="contact-card">
-      <span class="contact-icon">&#9742;</span> +91 80076 36416
-    </a>
-    <a href="https://linkedin.com/in/siddharth-tiwari-b19bb0157" target="_blank" class="contact-card">
-      <span class="contact-icon">&#128279;</span> LinkedIn Profile &#8599;
-    </a>
-  </div>
+<div class="sectionhead"><div class="label">04 / Contact</div><div><h2>Let's build something useful.</h2><p class="lead">Open to roles and opportunities across growth, operations, automation and business systems.</p><div class="cta"><a class="btn dark" href="mailto:tsiddharth1999@gmail.com">tsiddharth1999@gmail.com</a><a class="btn orange" href="https://linkedin.com/in/siddharth-tiwari-b19bb0157" target="_blank">LinkedIn ↗</a></div></div></div>
 </section>
-
-<footer>Built by Siddharth Tiwari &middot; Mumbai, India</footer>
-
+<footer><span>Siddharth Tiwari · Mumbai, India</span><span>Built around work, not adjectives.</span></footer>
+</main>
 </body>
 </html>
