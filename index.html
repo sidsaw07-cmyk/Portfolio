@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Siddharth Tiwari — Growth, Operations & Automation</title>
-<meta name="description" content="Siddharth Tiwari — growth, operations, automation and business systems.">
+<title>Siddharth Tiwari — Growth, Social & Performance Marketing</title>
+<meta name="description" content="Siddharth Tiwari — growth, social media, performance marketing, outbound and automation.">
 <style>
 :root{
   --cream:#F4EBDD;
@@ -212,6 +212,62 @@ footer{
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:none}
 
+
+/* Modern motion layer */
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+body:after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.22;
+  background-image:radial-gradient(rgba(21,21,21,.12) .65px,transparent .65px);
+  background-size:7px 7px;mix-blend-mode:multiply;
+}
+.progress{
+  position:fixed;top:0;left:0;height:2px;width:0;background:var(--orange);z-index:100;
+  box-shadow:0 0 16px rgba(217,95,32,.55);transform-origin:left;
+}
+.cursor-orb{
+  position:fixed;width:180px;height:180px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(217,95,32,.12),transparent 68%);
+  transform:translate(-50%,-50%);filter:blur(2px);transition:opacity .3s ease;
+}
+.hero:before{
+  content:"";position:absolute;width:520px;height:520px;left:-180px;top:-170px;border-radius:50%;
+  background:radial-gradient(circle,rgba(217,95,32,.13),transparent 68%);filter:blur(12px);
+  animation:breathe 8s ease-in-out infinite;pointer-events:none;
+}
+.hero{position:relative;isolation:isolate}
+.hero>*{position:relative;z-index:1}
+.kicker{animation:fadeSlide .8s .05s both}
+h1{animation:heroIn 1s .12s cubic-bezier(.2,.8,.2,1) both}
+.hero p{animation:fadeSlide .8s .24s both}
+.hero-note{animation:fadeSlide .8s .34s both}
+.cta{animation:fadeSlide .8s .44s both}
+.visual-card{animation:cardFloat 7s ease-in-out infinite}
+.orbit{animation:spin 30s linear infinite}
+.orbit:before{animation:dotPulse 2.8s ease-in-out infinite}
+.orbit:after{animation:dotPulse 2.8s 1.2s ease-in-out infinite}
+.card,.cap,.stat,.job{will-change:transform}
+.card{transform-style:preserve-3d}
+.card:after{
+  content:"";position:absolute;inset:0;opacity:0;pointer-events:none;
+  background:linear-gradient(120deg,rgba(255,255,255,.16),transparent 30%,transparent 70%,rgba(217,95,32,.08));
+  transition:opacity .45s ease;
+}
+.card:hover:after{opacity:1}
+.btn{position:relative;overflow:hidden}
+.btn:before{
+  content:"";position:absolute;inset:-40% -20%;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.24) 50%,transparent 65%);
+  transform:translateX(-120%);transition:transform .7s ease;pointer-events:none;
+}
+.btn:hover:before{transform:translateX(120%)}
+.link-chip{will-change:transform}
+@keyframes breathe{0%,100%{transform:scale(.95);opacity:.65}50%{transform:scale(1.08);opacity:1}}
+@keyframes cardFloat{0%,100%{transform:rotate(2deg) translate3d(0,0,0)}50%{transform:rotate(0deg) translate3d(0,-10px,0)}}
+@keyframes dotPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(217,95,32,0)}50%{transform:scale(1.25);box-shadow:0 0 0 10px rgba(217,95,32,0)}}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes heroIn{from{opacity:0;transform:translateY(30px) scale(.985);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.cursor-orb{display:none}}
+
 @media(max-width:850px){
   .hero{grid-template-columns:1fr;padding-top:75px}
   .hero-visual{min-height:340px}
@@ -229,12 +285,15 @@ footer{
 </style>
 </head>
 <body>
+<div class="progress" id="progress"></div>
+<div class="cursor-orb" id="cursorOrb"></div>
 
 <nav>
   <a class="brand" href="#top">Siddharth Tiwari</a>
   <div class="navlinks">
     <a href="#work">Work</a>
     <a href="#experience">Experience</a>
+    <a href="#direction">Focus</a>
     <a href="#capabilities">Capabilities</a>
     <a href="#contact">Contact</a>
   </div>
@@ -244,16 +303,16 @@ footer{
 
 <section class="hero" style="border:0">
   <div class="reveal">
-    <div class="kicker">Growth · Operations · Automation · Mumbai</div>
-    <h1>I build systems that make work move.</h1>
+    <div class="kicker">Growth · Social · Performance · Mumbai</div>
+    <h1>I build growth systems that move people.</h1>
     <p>
-      I work across growth, operations, automation and service workflows,
-      turning messy manual processes into clearer systems people can actually use.
+      I work at the intersection of growth, social media, outbound and automation,
+      turning audience insight and campaign ideas into work that is easier to execute and measure.
     </p>
 
     <div class="hero-note">
-      <strong>My work sits between people, process and technology.</strong>
-      <span>From demand generation and end-to-end event execution to internal automation and customer-service systems.</span>
+      <strong>Now moving deeper into social + performance marketing.</strong>
+      <span>My background is in GTM, outbound, end-to-end campaigns and automation. I’m looking for opportunities where I can bring that execution mindset into social media, paid ads and growth.</span>
     </div>
 
     <div class="cta">
@@ -268,7 +327,7 @@ footer{
     <div class="visual-card">
       <small>Working range</small>
       <strong>GROW<br>BUILD<br>SYSTEMIZE.</strong>
-      <span>Marketing → GTM → Ops → Automation</span>
+      <span>Social → Campaigns → Growth → Automation</span>
     </div>
   </div>
 </section>
@@ -402,31 +461,59 @@ footer{
   </div>
 </section>
 
+<section id="direction">
+  <div class="sectionhead reveal">
+    <div class="label">03 / Next direction</div>
+    <div>
+      <h2>Built for the next move.</h2>
+      <p class="lead">I’m actively looking toward social media, paid ads and performance marketing roles. I bring an existing foundation in audience research, outbound, campaign execution, partnerships, content-adjacent workflows and automation, and I want to build deeper hands-on depth in paid acquisition.</p>
+    </div>
+  </div>
+  <div class="workgrid">
+    <div class="card orange reveal">
+      <div>
+        <div class="meta">Target · Social Media</div>
+        <h3>Content that has a purpose.</h3>
+        <p>Social content, audience research, campaign ideas, distribution and iteration, with a strong bias toward making the work measurable rather than posting into the void.</p>
+      </div>
+      <div class="arrow">Social growth</div>
+    </div>
+    <div class="card feature reveal">
+      <div>
+        <div class="meta">Target · Paid Media</div>
+        <h3>Learning the ad machine.</h3>
+        <p>Looking for an opportunity to go deeper into Meta and Google Ads, campaign setup, creative testing, audience strategy, optimization and performance reporting.</p>
+      </div>
+      <div class="arrow">Performance marketing</div>
+    </div>
+  </div>
+</section>
+
 <section id="capabilities">
   <div class="sectionhead reveal">
-    <div class="label">03 / Capabilities</div>
+    <div class="label">04 / Capabilities</div>
     <div>
       <h2>Where I am useful.</h2>
-      <p class="lead">Not a list of software badges. These are the kinds of problems I like getting my hands dirty with.</p>
+      <p class="lead">A mix of proven experience and the direction I’m actively building toward.</p>
     </div>
   </div>
 
   <div class="capgrid">
-    <div class="cap reveal"><h3>Growth & GTM</h3><p>ABM, lead generation, outbound, CXO outreach, partnerships, event-led growth and campaign execution.</p></div>
+    <div class="cap reveal"><h3>Social & Campaigns</h3><p>Audience research, campaign planning, social content thinking, outreach and execution with a growth-oriented lens.</p></div>
     <div class="cap reveal"><h3>Operations Systems</h3><p>Workflow mapping, team/project tracking, service coordination, process visibility and operating dashboards.</p></div>
     <div class="cap reveal"><h3>Automation</h3><p>Google Workspace, Apps Script, AI-assisted workflows, CRM systems, data movement and lightweight internal tools.</p></div>
     <div class="cap reveal"><h3>Customer Operations</h3><p>Complaint flows, diagnostic journeys, technician coordination, booking logic and resolution-path design.</p></div>
     <div class="cap reveal"><h3>Events & Partnerships</h3><p>End-to-end leadership events, webinars, landing pages, partner onboarding, attendee coordination and senior-stakeholder outreach.</p></div>
-    <div class="cap reveal"><h3>Tools</h3><p>Google Sheets, Apps Script, Zoho CRM, Zapier, Claude, Claude Code, Notion, Sales Navigator and related GTM tooling.</p></div>
+    <div class="cap reveal"><h3>Marketing Stack</h3><p>Google Sheets, Apps Script, Zoho CRM, Zapier, Claude, Claude Code, Notion, Sales Navigator and related GTM tooling. Building deeper paid-media capability next.</p></div>
   </div>
 </section>
 
 <section id="contact">
   <div class="sectionhead reveal">
-    <div class="label">04 / Contact</div>
+    <div class="label">05 / Contact</div>
     <div>
       <h2>Let's build something useful.</h2>
-      <p class="lead">Open to roles and opportunities across growth, operations, automation and business systems.</p>
+      <p class="lead">Open to social media, paid ads, performance marketing and growth opportunities where strong execution, experimentation and systems thinking matter.</p>
       <div class="cta">
         <a class="btn dark" href="mailto:tsiddharth1999@gmail.com">Email me ↗</a>
         <a class="btn orange" href="https://www.linkedin.com/in/siddharth-tiwari-b19bb0157/" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -437,7 +524,7 @@ footer{
 
 <footer>
   <span>Siddharth Tiwari · Mumbai, India</span>
-  <span>Growth · Operations · Automation</span>
+  <span>Social · Growth · Performance · Automation</span>
 </footer>
 
 </main>
@@ -451,7 +538,36 @@ const observer = new IntersectionObserver((entries)=>{
     }
   });
 },{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+  el.style.transitionDelay = Math.min((i%5)*70,280)+'ms';
+  observer.observe(el);
+});
+
+const progress=document.getElementById('progress');
+const orb=document.getElementById('cursorOrb');
+let mx=window.innerWidth/2,my=window.innerHeight/2,ox=mx,oy=my;
+window.addEventListener('scroll',()=>{
+  const max=document.documentElement.scrollHeight-window.innerHeight;
+  progress.style.width=(max>0?(window.scrollY/max)*100:0)+'%';
+},{passive:true});
+window.addEventListener('pointermove',(e)=>{mx=e.clientX;my=e.clientY},{passive:true});
+function animateOrb(){
+  ox+=(mx-ox)*.09; oy+=(my-oy)*.09;
+  orb.style.left=ox+'px'; orb.style.top=oy+'px';
+  requestAnimationFrame(animateOrb);
+}
+animateOrb();
+
+document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('pointermove',(e)=>{
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`translateY(-7px) perspective(900px) rotateX(${-y*3}deg) rotateY(${x*3}deg)`;
+  });
+  card.addEventListener('pointerleave',()=>{card.style.transform=''});
+});
 </script>
 
 </body>
