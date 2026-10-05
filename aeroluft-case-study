@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aeroluft Service Resolution Platform — Siddharth Tiwari</title>
+<style>
+:root{--cream:#F4EBDD;--cream2:#E9DDCA;--orange:#D95F20;--orange2:#A94316;--black:#151515;--muted:#625D56;--line:#CFC2B0;--white:#FBF8F2}
+*{box-sizing:border-box;margin:0;padding:0}body{background:var(--cream);color:var(--black);font-family:Arial,Helvetica,sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:10;background:rgba(244,235,219,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:18px 5vw;display:flex;justify-content:space-between}
+.wrap{max-width:1080px;margin:auto;padding:0 5vw}.back,.eyebrow,.meta{text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:800;color:var(--orange2)}
+.hero{padding:95px 0 80px;border-bottom:1px solid var(--black)}h1{font-size:clamp(55px,9vw,115px);line-height:.84;letter-spacing:-.07em;max-width:950px;margin:18px 0 30px}.hero p{font-size:21px;color:var(--muted);max-width:780px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}.tag{border:1px solid var(--black);padding:7px 11px;font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.band{background:var(--black);color:var(--cream);padding:28px 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.stat b{display:block;font-size:42px;line-height:1}.stat span{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#BDB3A6}
+section{padding:95px 0;border-bottom:1px solid var(--line)}.grid{display:grid;grid-template-columns:.32fr 1fr;gap:45px}.content h2{font-size:clamp(35px,5vw,60px);line-height:.95;letter-spacing:-.05em;margin-bottom:20px}.content p{font-size:17px;color:var(--muted);max-width:780px;margin-bottom:18px}
+.arch{margin-top:35px;display:grid;grid-template-columns:repeat(7,1fr);gap:0;border:1px solid var(--black)}.node{padding:18px 10px;background:var(--white);min-height:120px;border-right:1px solid var(--black);display:flex;flex-direction:column;justify-content:space-between}.node:nth-child(even){background:var(--orange)}.node:last-child{border-right:0}.node b{font-size:14px}.node span{font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.findings{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:30px}.finding{border:1px solid var(--black);padding:25px;background:var(--white)}.finding:nth-child(2n){background:var(--cream2)}.finding h3{font-size:21px;line-height:1.05;margin:10px 0}.finding p{font-size:14px;margin:0}
+.deliver{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--black);border:1px solid var(--black);margin-top:30px}.deliver div{background:var(--cream);padding:24px;min-height:170px}.deliver h3{font-size:17px;margin-bottom:8px}.deliver p{font-size:13px;margin:0}
+.callout{background:var(--orange);border:1px solid var(--black);padding:32px;margin-top:30px}.callout strong{font-size:25px;line-height:1.15;display:block;max-width:750px}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.stack span{background:var(--black);color:var(--cream);padding:8px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+footer{padding:50px 0;display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.arch{grid-template-columns:1fr}.node{border-right:0;border-bottom:1px solid var(--black)}.findings,.deliver{grid-template-columns:1fr}h1{font-size:65px}}
+</style>
+</head>
+<body>
+<nav><a href="index.html" class="back">← Back to index</a><span class="meta">Case study / 01</span></nav>
+<main class="wrap">
+<header class="hero">
+<div class="eyebrow">Nutech Engineering · Service Operations · 2025</div>
+<h1>A service desk that starts before the ticket.</h1>
+<p>Designing a WhatsApp-first service resolution platform for Aeroluft industrial fans, connecting customer diagnosis, remote troubleshooting, technician coordination and internal service control.</p>
+<div class="tags"><span class="tag">Operations</span><span class="tag">Automation</span><span class="tag">Customer Experience</span><span class="tag">Apps Script</span><span class="tag">Service Design</span></div>
+</header>
+</main>
+
+<div class="band"><div class="wrap stats">
+<div class="stat"><b>24h</b><span>Target resolution / clear path</span></div>
+<div class="stat"><b>16+</b><span>Customer-facing screens</span></div>
+<div class="stat"><b>3</b><span>Resolution levels</span></div>
+<div class="stat"><b>4</b><span>Connected system layers</span></div>
+</div></div>
+
+<main class="wrap">
+<section><div class="grid"><div class="eyebrow">01 / Context</div><div class="content"><h2>The complaint should not become a relay race.</h2><p>The project was conceived around a simple operational problem: customer complaints need to move quickly from first contact to a useful resolution path, without making the customer become the technician or forcing the service team to reconstruct the case manually.</p><p>The goal was a system where the customer gets a simple guided experience, technicians receive a structured brief, and the internal team can see the entire ticket lifecycle in one place.</p></div></div></section>
+
+<section><div class="grid"><div class="eyebrow">02 / System</div><div class="content"><h2>Four layers. One case.</h2><p>The architecture separates the customer experience from the operational control layer while keeping a shared data model underneath.</p>
+<div class="arch">
+<div class="node"><b>01</b><span>WhatsApp<br>Entry</span></div>
+<div class="node"><b>02</b><span>Customer<br>Web Tool</span></div>
+<div class="node"><b>03</b><span>Telegram<br>Technician</span></div>
+<div class="node"><b>04</b><span>Service Desk<br>Dashboard</span></div>
+<div class="node"><b>05</b><span>Google Sheets<br>Data Layer</span></div>
+<div class="node"><b>06</b><span>Apps Script<br>Logic</span></div>
+<div class="node"><b>07</b><span>Closure<br>Control</span></div>
+</div></div></div></section>
+
+<section><div class="grid"><div class="eyebrow">03 / Customer flow</div><div class="content"><h2>Never ask the customer to think like an engineer.</h2><p>The customer-facing journey was designed around one question at a time, with a target of roughly 4–7 interactions. The backend decision tree stays invisible.</p><div class="deliver">
+<div><h3>Identify</h3><p>Capture customer, location and equipment information required to work the case.</p></div>
+<div><h3>Check safety</h3><p>Safety conditions can force technician involvement without automatically forcing a site visit.</p></div>
+<div><h3>Diagnose</h3><p>Guide the customer through structured fault patterns and remote troubleshooting.</p></div>
+<div><h3>Resolve remotely</h3><p>Level 1 paths attempt tool-guided or technician-guided resolution before dispatch.</p></div>
+<div><h3>Book when needed</h3><p>Phone and site-visit flows use defined slots and calendar rules.</p></div>
+<div><h3>Confirm closure</h3><p>Customer confirmation prevents premature closure for self-installation or unresolved cases.</p></div>
+</div></div></div></section>
+
+<section><div class="grid"><div class="eyebrow">04 / Engineering</div><div class="content"><h2>Operational rules became product rules.</h2><p>The system was designed around explicit business rules rather than a generic ticket form.</p>
+<div class="findings">
+<div class="finding"><div class="meta">Rule 01</div><h3>Remote-first routing</h3><p>Every suitable path attempts remote troubleshooting before technician dispatch.</p></div>
+<div class="finding"><div class="meta">Rule 02</div><h3>Three resolution levels</h3><p>Level 1 app fix, Level 2 technician intervention, Level 3 Service Head escalation.</p></div>
+<div class="finding"><div class="meta">Rule 03</div><h3>Safety is different</h3><p>A safety issue forces technician involvement, but does not automatically mean a site visit.</p></div>
+<div class="finding"><div class="meta">Rule 04</div><h3>Closure needs evidence</h3><p>Customer self-installation tickets remain open until the customer confirms resolution.</p></div>
+<div class="finding"><div class="meta">Rule 05</div><h3>AI stays bounded</h3><p>Diagnosis recommendations are only surfaced when the fault pattern exists in the troubleshooting library.</p></div>
+<div class="finding"><div class="meta">Rule 06</div><h3>Human escalation remains human</h3><p>Service Head escalation triggers internal discussion rather than an automatic action.</p></div>
+</div></div></div></section>
+
+<section><div class="grid"><div class="eyebrow">05 / What was built</div><div class="content"><h2>A working MVP, not just a flowchart.</h2><p>The project material defines and builds a substantial MVP across the customer, technician and internal service layers.</p>
+<div class="deliver">
+<div><h3>Master wireframe</h3><p>1,240-line specification covering screens, navigation, data model, error states and ticket lifecycle.</p></div>
+<div><h3>Customer web tool</h3><p>16+ interactive screens spanning identification, safety, diagnosis, quick fixes, booking, resolution and feedback.</p></div>
+<div><h3>Service desk</h3><p>Ticket queue, detail views, warranty handling and closure guard.</p></div>
+<div><h3>Apps Script backend</h3><p>Ticket CRUD, WhatsApp greeting logic, Telegram alert logic and structured Sheets integration.</p></div>
+<div><h3>Booking logic</h3><p>Real dates, phone/site slots, and rules excluding Sundays and 2nd/4th Saturdays.</p></div>
+<div><h3>Data structure</h3><p>Tickets, Customers, Equipment, Technicians, Holidays, Leads, AuditLog and Config tabs.</p></div>
+</div></div></div></section>
+
+<section><div class="grid"><div class="eyebrow">06 / Outcome</div><div class="content"><h2>The operating model became visible.</h2><p>The intended outcome is not another dashboard. It is a service process where every complaint has an explicit next step, whether that is a remote fix, technician intervention, escalation or confirmed closure.</p>
+<div class="callout"><strong>Core target: 100% of complaints receive a resolution or a clear resolution path within 24 hours.</strong></div>
+<p style="margin-top:25px">The project also establishes measurable operating signals: first response time, remote resolution rate, customer confirmation rate, repeated unresolved rate, average questions per complaint and technician/phone resolution rate.</p></div></div></section>
+
+<section><div class="grid"><div class="eyebrow">07 / Status & next</div><div class="content"><h2>Built foundation. Production is the next layer.</h2><p>The MVP/design work includes the customer tool, service desk, Apps Script logic, Google Sheets structure and booking logic. Production integrations remain separate work rather than being presented as completed.</p>
+<div class="findings">
+<div class="finding"><div class="meta">P0</div><h3>Connect the entry points</h3><p>WhatsApp Business API, Telegram bot and deployed Apps Script/Sheets environment.</p></div>
+<div class="finding"><div class="meta">P1–P2</div><h3>Add intelligence</h3><p>Hindi/Marathi support, photo OCR, AI interpretation, RTT engine and smarter technician routing.</p></div>
+<div class="finding"><div class="meta">P3</div><h3>Build the service growth layer</h3><p>AMC/PMC recommendations, exchange calculator, customer portal and analytics.</p></div>
+<div class="finding"><div class="meta">Scale</div><h3>Move beyond MVP infrastructure</h3><p>Dedicated database, hosting, ERP/inventory integrations and multi-brand support.</p></div>
+</div></div></div></section>
+
+<section><div class="grid"><div class="eyebrow">08 / Stack</div><div class="content"><h2>Tools behind the system.</h2><div class="stack"><span>Google Sheets</span><span>Google Apps Script</span><span>HTML / CSS / JavaScript</span><span>WhatsApp</span><span>Telegram</span><span>Service Dashboard</span><span>Workflow Design</span><span>AI-assisted Logic</span></div></div></div></section>
+
+<footer><span>Siddharth Tiwari · Nutech Engineering</span><a href="index.html">← Return to index</a></footer>
+</main>
+</body>
+</html>
